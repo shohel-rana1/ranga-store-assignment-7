@@ -17,7 +17,7 @@ const showProducts = (products) => {
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
-    <img class="product-image" src="https://fakestoreapi.com/img/${'81fPKd-2AYL._AC_SL1500_.jpg'}"></img>
+    <img class="product-image" src="${product.image}"></img>
       </div>
       <h3>${product.title.slice(0, 25)}</h3>
       <p>Category: ${product.category}</p>
@@ -25,44 +25,20 @@ const showProducts = (products) => {
       <h5>Total Votes: ${product.rating.count}</h5>
       <h2>Price:${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" onclick="loadSingleItem(${products})" class="btn btn-primary">Details</button></div>
+      <button id="details-btn" class="btn btn-primary">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
-//display single product
-const loadSingleItem = () => {
-  fetch('https://fakestoreapi.com/products/1')
-    .then(res => res.json())
-    .then(data => displaySingleProduct(data))
-}
-displaySingleProduct = (data) => {
-  console.log(data);
-  for (const item in data) {
-    const singleItem = document.getElementById('single-item');
-    const div = document.createElement('div');
-    div.classList.add('card');
-    div.innerHTML = `
-    <img class="card-img-top" src="https://fakestoreapi.com/img/${'81fPKd-2AYL._AC_SL1500_.jpg'}" alt="Card image cap">
-    <div class="card-body">
-    <h3>${item.title}</h3>
-    <p>Category: ${item.category}</p>
-    <h5>Ratings: ${item.rating.rate}</h5>
-    <h5>Total Votes: ${item.rating.count}</h5>
-    <h2>Price:${item.price}</h2>
-    </div>
-    `
-    singleItem.appendChild(div);
-  }
 
-};
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
-  updateTotal();
+
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
+  updateTotal();
 };
 
 const getInputValue = (id) => {

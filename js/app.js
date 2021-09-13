@@ -8,7 +8,6 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.images;
@@ -38,7 +37,6 @@ const addToCart = (id, price) => {
 
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
-  updateTotal();
 };
 
 const getInputValue = (id) => {
@@ -75,6 +73,7 @@ const updateTaxAndCharge = () => {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
   }
+  updateTotal();
 };
 
 //grandTotal update function

@@ -1,6 +1,7 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
+  background-color: #e7e7e7;
 }
 #input-field{
   border: 1px solid #157347;
@@ -15,7 +16,6 @@ body {
 #all-products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* border: 1px solid black; */
   grid-gap: 20px;
   text-align: center;
   width: 90%;
@@ -26,7 +26,7 @@ body {
 .single-product {
   padding: 10px;
   transition: 0.6s;
-  background-color: #ddecf1;
+  background-color: #cfeaf3;
 }
 .single-product:hover {
   background-color: #99d4e7;
@@ -43,7 +43,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   margin-right: 30px;
-  background-color: #ddecf1;
+  background-color: #cfeaf3;
   position: fixed;
 }
 .cart:hover {
@@ -60,7 +60,6 @@ body {
   }
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;

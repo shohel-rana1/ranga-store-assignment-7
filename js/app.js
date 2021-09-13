@@ -8,16 +8,18 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
+  console.log(products);
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.images;
+    // console.log(image);
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
-    <img class="product-image" src=${image}></img>
+    <img class="product-image" src="https://fakestoreapi.com/img/${'81fPKd-2AYL._AC_SL1500_.jpg'}"></img>
       </div>
-      <h3>${product.title}</h3>
+      <h3>${product.title.slice(0, 25)}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
@@ -44,7 +46,7 @@ const getInputValue = (id) => {
 // main price update function
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
-  const convertPrice = parseFloat(value);
+  const convertPrice = parseFloat(value).toFixed(2);
   const total = convertedOldPrice + convertPrice;
   document.getElementById(id).innerText = Math.round(total);
 };

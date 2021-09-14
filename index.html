@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buy Needs</title>
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/0d3d75f92d.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,7 +30,8 @@
     <div class="input-group mb-5 w-25 mt-5 mx-auto">
       <input id="input-field" type="text" class="form-control" aria-label="Recipient's username"
         placeholder="Search Your Needs Here" aria-describedby="button-addon2">
-      <button onclick="loadProducts()" class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
+      <button onclick="loadProducts()" class="btn btn-outline-secondary" type="button" id="search-btn"><i
+          class="fas fa-search"></i></button>
     </div>
     <!-- display Single Item  -->
     <div id="single-item" class="container row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mx-auto mt-5">
@@ -67,7 +70,7 @@
               </tr>
               <tr>
                 <th>Delivery-Charge:</th>
-                <td>$ <span id="delivery-charge">20</span></td>
+                <td>$ <span id="delivery-charge">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -85,7 +88,7 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button class="btn btn-primary text-center"><i class="fas fa-shopping-cart"></i> Buy Now</button>
           </div>
         </div>
       </div>

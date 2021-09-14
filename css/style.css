@@ -11,6 +11,17 @@ body {
 }
 #search-btn {
   background-color: #3fb37d;
+  text-align: center;
+  font-size: larger;
+  font-weight:bolder;
+  width: 50px;
+}
+/* rating star  */
+.rating-section{
+  display: inline-block;
+}
+.fa-star {
+  color: #f8ce0b;
 }
 
 #all-products {
@@ -27,12 +38,13 @@ body {
   padding: 10px;
   transition: 0.6s;
   background-color: #cfeaf3;
+ 
 }
 .single-product:hover {
   background-color: #99d4e7;
   box-shadow: 4px 4px 7px gray;
   border-radius: 10px;
-  border: 1px solid #4c8fa5;
+  /* border: 1px solid #4c8fa5; */
 }
 .product-image {
   width: 150px;

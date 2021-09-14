@@ -8,26 +8,27 @@ loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
+
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     const image = product.images;
-    // console.log(image);
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
-    <img class="product-image" src="${product.image}"></img>
+       <img class="product-image" src="${product.image}"></img>
       </div>
       <h3>${product.title.slice(0, 25)}</h3>
       <p>Category: ${product.category}</p>
-      <h5>Ratings: ${product.rating.rate}</h5>
-      <h5>Reviews: ${product.rating.count}</h5>
+      <h5 class="rating-section">Ratings: <i class="fa fa-star" area-hidden="true"></i>(${product.rating.rate})</h5>
+      <h5>Reviews: <i class="fas fa-user"></i> ${product.rating.count}</h5>
       <h2>Price: ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success"><i class="fas fa-shopping-cart"></i> add to cart</button>
       <button id="details-btn" class="btn btn-primary">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
+
 };
 
 let count = 0;
@@ -61,6 +62,9 @@ const setInnerText = (id, value) => {
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
+  if (priceConverted <= 200) {
+    setInnerText("delivery-charge", 20);
+  }
   if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
     setInnerText("total-tax", priceConverted * 0.2);
